@@ -1,5 +1,9 @@
 # AI Privacy Control Plane MVP
 
+## Live Demo
+
+[Launch the AI Privacy Control Plane MVP](https://ai-privacy-control-plane.streamlit.app/)
+
 ## Overview
 
 AI Privacy Control Plane is a portfolio MVP that demonstrates how privacy risk can be operationalized inside AI-enabled product and engineering workflows.
