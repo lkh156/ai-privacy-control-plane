@@ -4,6 +4,29 @@
 
 [Launch the AI Privacy Control Plane MVP](https://ai-privacy-control-plane.streamlit.app/)
 
+## Reviewer Quick Links
+
+| Resource | Link |
+|---|---|
+| Live Demo | [Launch App](https://ai-privacy-control-plane.streamlit.app/) |
+| Product Strategy Brief | [View Brief](docs/product_strategy_brief.md) |
+| Stakeholder Readout | [View Readout](docs/stakeholder_readout.md) |
+| Customer Support AI Case Study | [View Case Study](docs/case_study_customer_support_ai.md) |
+| Architecture Decisions | [View Architecture Notes](docs/architecture_decisions.md) |
+| Demo Script | [View Demo Script](docs/demo_script.md) |
+
+## What This Demonstrates
+
+This project demonstrates a working AI privacy governance workflow that can:
+
+- Assess AI use cases for privacy risk
+- Detect sensitive data exposure in code and LLM prompts
+- Normalize findings into a consistent risk model
+- Map findings to control domains and evidence expectations
+- Route issues into remediation workflows
+- Produce executive-level privacy metrics
+- Export findings for review, tracking, or audit support
+
 ## Overview
 
 AI Privacy Control Plane is a portfolio MVP that demonstrates how privacy risk can be operationalized inside AI-enabled product and engineering workflows.
