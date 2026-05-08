@@ -138,6 +138,7 @@ The broader platform vision is a modular AI privacy control plane that turns pri
 | [Product Strategy Brief](docs/product_strategy_brief.md) | Explains the product vision, target users, operating model, key metrics, roadmap, risks, and tradeoffs |
 | [Customer Support AI Case Study](docs/case_study_customer_support_ai.md) | Walks through a representative AI use case from privacy intake through risk assessment, remediation, control mapping, and decisioning |
 | [Architecture and Product Decisions](docs/architecture_decisions.md) | Explains the MVP architecture, key design decisions, tradeoffs, and scalability path |
+| [Stakeholder Readout](docs/stakeholder_readout.md) | Provides a concise executive summary of the MVP, stakeholder value, strategic positioning, and expansion path |
 | [Demo Script](docs/demo_script.md) | Provides a structured walkthrough for the live demo |
 
 ## Roadmap
