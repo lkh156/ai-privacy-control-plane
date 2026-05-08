@@ -22,6 +22,20 @@ Common risk scenarios include:
 - Date of birth or account data collected without clear minimization
 - Privacy findings lacking ownership, remediation steps, or evidence requirements
 
+## Screenshots
+
+### Executive Dashboard
+
+![Executive Dashboard](screenshots/dashboard.png)
+
+### AI Privacy Assessment
+
+![AI Privacy Assessment](screenshots/ai_privacy_assessment.png)
+
+### Control Mapping
+
+![Control Mapping](screenshots/control_mapping.png)
+
 ## MVP Capabilities
 
 | Capability | Description |
