@@ -26,6 +26,9 @@ Common risk scenarios include:
 
 | Capability | Description |
 |---|---|
+| AI Privacy Assessment | Simulates privacy intake, data classification, control review, risk rating, approval recommendation, and stakeholder ownership for an AI use case |
+| Privacy Review Workflow | Shows the end-to-end AI privacy review process from intake through data classification, scanning, triage, remediation, evidence collection, and approval |
+| Executive Privacy Metrics | Translates privacy findings into program-level metrics for leadership, governance, compliance reporting, and cross-functional execution |
 | Privacy Code Scanner | Detects privacy anti-patterns in code snippets or pull request diffs |
 | LLM Prompt Scanner | Detects and redacts sensitive data before LLM processing |
 | Executive Dashboard | Shows findings by severity, source module, and open risk count |
