@@ -64,6 +64,7 @@ page = st.sidebar.radio(
         "AI Privacy Assessment",
         "Privacy Review Workflow",
         "Executive Privacy Metrics",
+        "Control Mapping",
         "Privacy Code Scanner",
         "LLM Prompt Scanner",
         "Remediation Queue",
@@ -834,3 +835,122 @@ if page == "Executive Privacy Metrics":
         use_container_width=True,
         hide_index=True,
     )
+
+if page == "Control Mapping":
+    st.subheader("Control Mapping")
+
+    st.write(
+        "This view maps AI privacy findings to control domains, evidence expectations, "
+        "and accountable stakeholders. It is designed to show how privacy risk becomes "
+        "governance-ready remediation work."
+    )
+
+    control_mapping_data = [
+        {
+            "Control Domain": "Data Minimization",
+            "Control Objective": "Limit collection and processing to data necessary for the approved AI use case.",
+            "Example Risk Signal": "Date of birth or account data collected when a less sensitive attribute would satisfy the business purpose.",
+            "Evidence Required": "Data minimization rationale, approved product requirement, and field-level data inventory.",
+            "Primary Owner": "Product / Privacy",
+        },
+        {
+            "Control Domain": "Sensitive Data Handling",
+            "Control Objective": "Prevent regulated identifiers and high-risk data from being exposed to unauthorized systems or users.",
+            "Example Risk Signal": "SSN, account number, payment card data, or authentication secrets appear in code, prompts, logs, or outputs.",
+            "Evidence Required": "Redaction test, masking configuration, blocked event log, and approved exception if applicable.",
+            "Primary Owner": "Engineering / Security",
+        },
+        {
+            "Control Domain": "AI Input Governance",
+            "Control Objective": "Ensure prompts, files, and retrieval context are scanned before being submitted to AI models.",
+            "Example Risk Signal": "LLM prompt includes sensitive customer data or regulated identifiers.",
+            "Evidence Required": "Prompt scan result, policy decision log, redacted prompt sample, and model request architecture.",
+            "Primary Owner": "AI Product / Privacy",
+        },
+        {
+            "Control Domain": "Logging Controls",
+            "Control Objective": "Prevent sensitive data from being written to application, security, analytics, or model telemetry logs.",
+            "Example Risk Signal": "Code logs user email, SSN, account number, customer notes, or other sensitive fields.",
+            "Evidence Required": "Sanitized log sample, unit test, logging standard, and code review evidence.",
+            "Primary Owner": "Engineering",
+        },
+        {
+            "Control Domain": "Retention Management",
+            "Control Objective": "Ensure AI inputs, outputs, prompts, transcripts, and evidence artifacts follow approved retention rules.",
+            "Example Risk Signal": "Customer transcripts, prompts, or model outputs are persisted without retention metadata or deletion logic.",
+            "Evidence Required": "Retention rule, deletion test, data lifecycle owner approval, and storage location inventory.",
+            "Primary Owner": "Data Governance / Engineering",
+        },
+        {
+            "Control Domain": "Access Control",
+            "Control Objective": "Restrict access to sensitive AI workflows, findings, evidence, prompts, and outputs based on role and need.",
+            "Example Risk Signal": "Sensitive AI outputs or privacy findings are broadly visible without role-based access.",
+            "Evidence Required": "Access review, RBAC configuration, entitlement evidence, and periodic review record.",
+            "Primary Owner": "Security / IAM",
+        },
+        {
+            "Control Domain": "Evidence Readiness",
+            "Control Objective": "Maintain defensible evidence showing that privacy findings were reviewed, remediated, approved, or risk accepted.",
+            "Example Risk Signal": "Findings are closed without supporting tests, approvals, screenshots, or control evidence.",
+            "Evidence Required": "Evidence package, remediation notes, approval record, and closure validation.",
+            "Primary Owner": "Audit / Compliance",
+        },
+    ]
+
+    control_mapping_df = pd.DataFrame(control_mapping_data)
+
+    st.markdown("### Control Domain Library")
+    st.dataframe(
+        control_mapping_df,
+        use_container_width=True,
+        hide_index=True,
+    )
+
+    st.markdown("### Findings Mapped to Controls")
+
+    findings = st.session_state.findings
+
+    if not findings:
+        st.info(
+            "No findings are currently loaded. Click Load Demo Scenario or run a scanner "
+            "to see findings mapped to control domains."
+        )
+    else:
+        mapped_rows = []
+
+        for finding in findings:
+            control_mapping = finding.get("control_mapping", [])
+
+            if isinstance(control_mapping, list):
+                control_text = ", ".join(control_mapping)
+            else:
+                control_text = str(control_mapping)
+
+            mapped_rows.append(
+                {
+                    "Finding ID": finding.get("finding_id"),
+                    "Title": finding.get("title"),
+                    "Severity": finding.get("severity"),
+                    "Risk Area": finding.get("risk_area"),
+                    "Control Mapping": control_text,
+                    "Owner": finding.get("owner"),
+                    "Evidence Required": finding.get("evidence_required"),
+                    "Status": finding.get("status"),
+                }
+            )
+
+        mapped_df = pd.DataFrame(mapped_rows)
+
+        st.dataframe(
+            mapped_df,
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    st.markdown("### Governance Readout")
+
+    st.info(
+        "This view connects detection to defensibility. Each privacy finding should map to a control domain, "
+        "an accountable owner, a remediation expectation, and evidence required for closure. "
+        "That creates a repeatable governance model for AI privacy review."
+    )    

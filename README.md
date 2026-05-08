@@ -29,6 +29,7 @@ Common risk scenarios include:
 | AI Privacy Assessment | Simulates privacy intake, data classification, control review, risk rating, approval recommendation, and stakeholder ownership for an AI use case |
 | Privacy Review Workflow | Shows the end-to-end AI privacy review process from intake through data classification, scanning, triage, remediation, evidence collection, and approval |
 | Executive Privacy Metrics | Translates privacy findings into program-level metrics for leadership, governance, compliance reporting, and cross-functional execution |
+| Control Mapping | Maps AI privacy findings to control domains, evidence expectations, remediation ownership, and governance-ready closure requirements |
 | Privacy Code Scanner | Detects privacy anti-patterns in code snippets or pull request diffs |
 | LLM Prompt Scanner | Detects and redacts sensitive data before LLM processing |
 | Executive Dashboard | Shows findings by severity, source module, and open risk count |
@@ -115,6 +116,13 @@ The project demonstrates how privacy, security, legal, audit, product, and engin
 - Support future integration with GitHub, Jira, SOC reports, data-flow mapping, and vendor assurance
 
 The broader platform vision is a modular AI privacy control plane that turns privacy obligations into actionable engineering workflows, measurable risk reduction, and audit-ready evidence.
+
+## Supporting Strategy Documents
+
+| Document | Purpose |
+|---|---|
+| [Product Strategy Brief](docs/product_strategy_brief.md) | Explains the product vision, target users, operating model, key metrics, roadmap, risks, and tradeoffs |
+| [Demo Script](docs/demo_script.md) | Provides a structured walkthrough for the live demo |
 
 ## Roadmap
 
